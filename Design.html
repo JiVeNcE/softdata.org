@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Zhivko Angelov - Official Web Site and Blog</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600|Source+Code+Pro" rel="stylesheet" />
+    <!--[if lte IE 8]><script src="js/html5shiv.js" type="text/javascript"></script><![endif]-->
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="js/jquery.dropotron.min.js"></script>
+    <script src="js/skel.min.js">
+        {
+            prefix: 'css/style',
+                    preloadStyleSheets: true,
+                resetCSS: true,
+                boxModel: 'border',
+                grid: { gutters: 30 },
+            breakpoints: {
+                wide: { range: '1200-', containers: 1140, grid: { gutters: 50 } },
+                narrow: { range: '481-1199', containers: 960 },
+                mobile: { range: '-480', containers: 'fluid', lockViewport: true, grid: { collapse: true } }
+            }
+        }
+    </script>
+    <script>
+        $(function() {
+
+            // Note: make sure you call dropotron on the top level <ul>
+            $('#main-nav > ul').dropotron({
+                offsetY: -10 // Nudge up submenus by 10px to account for padding
+            });
+
+        });
+    </script>
+    <script>
+        // DOM ready
+        $(function() {
+
+            // Create the dropdown base
+            $("<select />").appendTo("nav");
+
+            // Create default option "Go to..."
+            $("<option />", {
+                "selected": "selected",
+                "value"   : "",
+                "text"    : "Menu"
+            }).appendTo("nav select");
+
+            // Populate dropdown with menu items
+            $("nav a").each(function() {
+                var el = $(this);
+                $("<option />", {
+                    "value"   : el.attr("href"),
+                    "text"    : el.text()
+                }).appendTo("nav select");
+            });
+
+            // To make dropdown actually work
+            // To make more unobtrusive: http://css-tricks.com/4064-unobtrusive-page-changer/
+            $("nav select").change(function() {
+                window.location = $(this).find("option:selected").val();
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div id="header_container">
+    <div class="container">
+        <!-- Header -->
+        <div id="header" class="row">
+            <div class="4u">
+                <div class="wrapper">
+                    <h1><a href="index.html"><span class="header_colour">SoftData.org</span></a></h1>
+                    <h2>Web site and Blog of Zhivko Angelov </h2>
+                </div>
+            </div>
+
+            <nav id="main-nav" class="8u">
+                <ul>
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="MyPortfolio.html">My Portfolio</a></li>
+                    <li><a href="Design.html">Design</a></li>
+                    <li>
+                        <a href="#">Programming</a>
+                        <ul>
+                            <li><a href="">C#</a></li>
+                            <li><a href="#">Java</a></li>
+                            <li><a href="#">HTML & CSS</a></li>
+                            <li><a href="#">JavaScript</a></li>
+                            <li><a href="#">PHP</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="12u">
+            <div id="wrapper-banner">
+                <!-- Banner -->
+                <div id="banner">
+                    <a href="#"><img src="images/logo.jpg" alt="banner image" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="site_content">
+    <div class="container">
+
+        <!-- Features -->
+        <div class="row">
+
+            <section class="4u">
+                <div id="sidebar">
+                    <section class="12u">
+                        <h3>Latest News</h3>
+                        <h4>My New Blog Launched</h4>
+                        <h5>June 28, 2014</h5>
+                    </section>
+                    <section class="12u">
+                        <h3>Useful Links</h3>
+                        <ul>
+                            <li><a href="https://softuni.bg">SoftUni.bg</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </section>
+
+            <section class="8u">
+
+                    <h6>Тук може да видите лекцията по Основи на уеб дизайна и работа с Photoshop от конференцията в Боровец на Софтуерния Университет.</h6>
+                <iframe src="//www.youtube.com/embed/5YwELBhKHBM" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            </section>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Footer -->
+    <footer>
+        <p><img src="images/fb.png" alt="twitter" />&nbsp;<img src="images/in.png" alt="facebook" />&nbsp;<img src="images/twitter.png" alt="rss" /></p>
+        <p><a href="index.html">Home</a> | <a href="examples.html">News</a> | <a href="apage.html">My Portfolio</a> | <a href="anotherpage.html">Programming</a> | <a href="contact.php">About</a></p>
+        <p>Copyright | design from JiVeNcE &copy;</p>
+    </footer>
+</div>
+
+</body>
+</html>
